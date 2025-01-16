@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/Header";
+import Header from "./components/header";
 import Home from "./components/Home";
 import ABOUT from "./components/about_me.jsx";
 import Skillsandtools from "./components/skills.jsx";
