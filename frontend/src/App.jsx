@@ -4,7 +4,7 @@ import Header from "./components/header";
 import Home from "./components/Home";
 import ABOUT from "./components/about_me.jsx";
 import Skillsandtools from "./components/skills.jsx";
-import Services from "./components/Services";
+import Services from "./components/services.jsx";
 import Projects from "./components/projects.jsx";
 import Contact from "./components/contactme.jsx";
 import Footer from "./components/footer.jsx";
