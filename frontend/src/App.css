@@ -1,0 +1,46 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.my-text {
+  font-family: 'Lobster', cursive;
+}
+/* Style for the rotating SVG circle */
+.rotating-circle {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 200px;
+  background: transparent;
+  padding: 10px;
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
+/* Rotation animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Style for the text along the SVG path */
+.circle-text {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  fill: #f0f0eb;
+  text-anchor: middle;
+  alignment-baseline: middle;
+}
+
+body {
+  background-color: #0e0e0e;
+  margin: 0;
+  padding: 0;
+}

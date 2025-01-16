@@ -1,0 +1,41 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  width="200"
+  height="200"
+>
+  <!-- Outer Circle -->
+  <circle
+    cx="100"
+    cy="100"
+    r="90"
+    fill="none"
+    stroke="#DAC5A7"
+    stroke-width="10"
+  />
+
+  <!-- Inner Text -->
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    fill="#2B2B2B"
+    font-size="16"
+    font-family="Arial, sans-serif"
+    dy=".3em"
+  >
+    Web Development
+  </text>
+
+  <!-- Rotating Dots -->
+  <circle cx="100" cy="10" r="5" fill="#2B2B2B">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 100 100"
+      to="360 100 100"
+      dur="2s"
+      repeatCount="indefinite"
+    />
+  </circle>
+</svg>
