@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const [input, setInput] = useState({ name: '', email: '', subject: '', message: '' });
+  const [input, setInput] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   function handleInput(event) {
     const { name, value } = event.target;
@@ -14,23 +21,29 @@ const Contact = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsSubmitting(true);
     try {
-      const response = await fetch('https://my-portfolio-8nuv.onrender.com/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(input),
-      });
+      const response = await fetch(
+        "https://my-portfolio-8nuv.onrender.com/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(input),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
-        alert(data.message);
+        setIsSubmitted(true);
       } else {
-        alert( data.message);
+        alert("Error: " + data.message);
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Error submitting form');
+      console.error("Error submitting form:", error);
+      alert("Error submitting form");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -71,6 +84,7 @@ const Contact = () => {
             transition={{ duration: 1 }}
           />
         </div>
+
         <div className="w-full sm:w-[500px] text-center sm:text-left">
           <motion.p
             className="text-[#dac5a7] text-xl sm:text-xl sm:font-medium mb-4"
@@ -102,60 +116,72 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.6 }}>
-            E-Mail : <span className="text-[#dac5a7]">estifanosk3@gmail.com</span>
+            E-Mail : <span className="text-[#dac5a7]">estifanos@gmail.com</span>
           </motion.p>
-
-          <motion.form
-            className="flex flex-col gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.8 }}
-            onSubmit={handleSubmit}>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              <input
-                name="name"
-                required
-                type="text"
-                placeholder="Name"
-                value={input.name}
-                onChange={handleInput}
-                className="p-4 px-8 w-full rounded-md bg-[#333] text-white placeholder-[#7f7466] border border-black mb-4 outline-none"
-              />
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="E-mail"
-                value={input.email}
-                onChange={handleInput}
-                className="p-4 px-8 w-full rounded-md bg-[#333] text-white placeholder-[#7f7466] border border-black mb-4 outline-none"
-              />
-            </div>
-            <input
-              name="subject"
-              type="text"
-              required
-              placeholder="Subject"
-              value={input.subject}
-              onChange={handleInput}
-              className="p-4 px-8 w-full rounded-md bg-[#333] text-white placeholder-[#7f7466] border border-black mb-4 outline-none"
-            />
-            <textarea
-              name="message"
-              placeholder="Message"
-              required
-              value={input.message}
-              onChange={handleInput}
-              className="p-4 px-8 w-full rounded-md bg-[#333] text-white h-32 placeholder-[#7f7466] border border-black mb-4 outline-none"></textarea>
-            <motion.button
-              type="submit"
-              className="p-4 px-8 rounded-md bg-[#f4cc95] text-black font-bold"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}>
-              Send Message
-            </motion.button>
-          </motion.form>
+          {isSubmitted ? (
+            <motion.p
+              className=" border border-[#f6dcb7] p-16 text-[#928471] font-medium sm:font-[500] leading-6 sm:leading-9 text-lg sm:text-[15px] mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}>
+              Thank you for your message. It has been sent.
+            </motion.p>
+          ) : (
+            <>
+              <motion.form
+                className="flex flex-col gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.8 }}
+                onSubmit={handleSubmit}>
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                  <input
+                    name="name"
+                    required
+                    type="text"
+                    placeholder="Name"
+                    value={input.name}
+                    onChange={handleInput}
+                    className="p-4 px-8 w-full rounded-md bg-[#333] text-white placeholder-[#7f7466] border border-black mb-4 outline-none"
+                  />
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="E-mail"
+                    value={input.email}
+                    onChange={handleInput}
+                    className="p-4 px-8 w-full rounded-md bg-[#333] text-white placeholder-[#7f7466] border border-black mb-4 outline-none"
+                  />
+                </div>
+                <input
+                  name="subject"
+                  type="text"
+                  required
+                  placeholder="Subject"
+                  value={input.subject}
+                  onChange={handleInput}
+                  className="p-4 px-8 w-full rounded-md bg-[#333] text-white placeholder-[#7f7466] border border-black mb-4 outline-none"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  required
+                  value={input.message}
+                  onChange={handleInput}
+                  className="p-4 px-8 w-full rounded-md bg-[#333] text-white h-32 placeholder-[#7f7466] border border-black mb-4 outline-none"></textarea>
+                <motion.button
+                  type="submit"
+                  className="p-4 px-8 rounded-md bg-[#f4cc95] text-black font-bold"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </motion.button>
+              </motion.form>
+            </>
+          )}
         </div>
       </div>
     </div>
