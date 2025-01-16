@@ -36,7 +36,7 @@ function App() {
 
       {/* Main content sections with corresponding IDs for smooth scrolling */}
       <div id="home">
-        <Home id="home" isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <Home id="home" isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}scrollToView={scrollToView} />
       </div>
       <div id="about">
         <ABOUT isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
