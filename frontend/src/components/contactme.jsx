@@ -116,7 +116,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.6 }}>
-            E-Mail : <span className="text-[#dac5a7]">estifanos@gmail.com</span>
+            E-Mail : <span className="text-[#dac5a7]">estifanosk3@gmail.com</span>
           </motion.p>
           {isSubmitted ? (
             <motion.p
