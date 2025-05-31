@@ -30,7 +30,7 @@ const frontEndProjects = [
 
 const fullStackProjects = [
   {
-    title: "Lead Management CRM Web App",
+    title: "Lead Management CRM Web ",
     description:
       "Lead Management CRM is a full-stack web application designed to help businesses efficiently track, manage, and nurture leads through the sales funnel. Built with the MERN stack (Mysql, Express, React, Node.js), this app provides features like lead tracking, status updates, and seamless user interaction to optimize customer relationship management.",
     images: ["crm1.png", "crm2.png"], // Changed to array of images
@@ -67,7 +67,7 @@ const realTimeProjects = [
 ];
 
 const Projects = () => {
-  const [selected, setSelected] = useState("FrontEnd");
+  const [selected, setSelected] = useState("FullStack");
   const [hover, setHover] = useState(false);
   const Projects = ["FrontEnd", "FullStack", "RealTime"];
 
@@ -90,7 +90,7 @@ const Projects = () => {
       <div className="relative">
         <img
           src={images[currentIndex]}
-          className="object-fill rounded-3xl h-[400px] sm:h-[500px] w-full sm:w-[500px]"
+          className="object-fill rounded-3xl h-[300px] sm:h-[400px] w-96 sm:w-[500px]"
           alt={`Project screenshot ${currentIndex + 1}`}
         />
 
