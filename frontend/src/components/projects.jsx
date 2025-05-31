@@ -50,7 +50,7 @@ const fullStackProjects = [
     description:
       "Rick and Morty Web App is a fan-made, interactive website showcasing characters, episodes, and locations from the popular animated series Rick and Morty. Built with Vue.js for the frontend and Tailwind CSS for styling, this app allows users to explore the world of Rick and Morty by fetching data directly from the Rick and Morty API.",
     image: "rickandmorty.png",
-    liveLink: "https://rickandmorty-tvshow.netlify.app/",
+    liveLink: "https://main--rickandmorty-tvshow.netlify.app/",
     githubLink: "https://github.com/Estif4/RickAndMorty",
   },
 ];
@@ -69,7 +69,7 @@ const realTimeProjects = [
 const Projects = () => {
   const [selected, setSelected] = useState("FullStack");
   const [hover, setHover] = useState(false);
-  const Projects = ["FrontEnd", "FullStack", "RealTime"];
+  const Projects = [ "FullStack", "FrontEnd","RealTime"];
 
   const ProjectImageCarousel = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
