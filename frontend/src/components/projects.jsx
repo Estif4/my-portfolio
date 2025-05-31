@@ -33,7 +33,7 @@ const fullStackProjects = [
     title: "Lead Management CRM Web App",
     description:
       "Lead Management CRM is a full-stack web application designed to help businesses efficiently track, manage, and nurture leads through the sales funnel. Built with the MERN stack (Mysql, Express, React, Node.js), this app provides features like lead tracking, status updates, and seamless user interaction to optimize customer relationship management.",
-    image: "crm1.png",
+    images: ["crm1.png", "crm2.png"], // Changed to array of images
     liveLink: "https://leadmanagement.scitechvalley.com/",
     githubLink: "https://github.com/Estif4/leadmanage",
   },
@@ -71,6 +71,60 @@ const Projects = () => {
   const [hover, setHover] = useState(false);
   const Projects = ["FrontEnd", "FullStack", "RealTime"];
 
+  const ProjectImageCarousel = ({ images }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextImage = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+
+    const prevImage = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+    };
+
+    return (
+      <div className="relative">
+        <img
+          src={images[currentIndex]}
+          className="object-fill rounded-3xl h-[400px] sm:h-[500px] w-full sm:w-[500px]"
+          alt={`Project screenshot ${currentIndex + 1}`}
+        />
+
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition">
+              &lt;
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition">
+              &gt;
+            </button>
+
+            <div className="flex justify-center mt-2 gap-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full ${
+                    currentIndex === index ? "bg-[#c4ae8d]" : "bg-gray-500"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    );
+  };
+
   const renderProjects = (projects) => {
     return projects.map((project, index) => (
       <motion.div
@@ -81,17 +135,21 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.2 }}>
         <div>
-          <img
-            src={project.image}
-            className="object-fill rounded-3xl h-[400px] sm:h-[500px] w-[] sm:w-[500px]"
-            alt={project.title}
-          />
+          {project.images ? (
+            <ProjectImageCarousel images={project.images} />
+          ) : (
+            <img
+              src={project.image}
+              className="object-fill rounded-3xl h-[400px] sm:h-[500px] w-full sm:w-[500px]"
+              alt={project.title}
+            />
+          )}
         </div>
         <div className="sm:w-[500px]">
           <p className="text-white text-center font-montserrat text-2xl whitespace-nowrap sm:whitespace-normal sm:text-5xl ml-4 font-bold mb-4">
             {project.title}
           </p>
-          <p className="text-[#7f7466]  font-[400] leading-6 sm:leading-9  text-center text-sm sm:text-[18px] font-montserrat">
+          <p className="text-[#7f7466] font-[400] leading-6 sm:leading-9 text-center text-sm sm:text-[18px] font-montserrat">
             {project.description}
           </p>
           <motion.div
@@ -102,7 +160,7 @@ const Projects = () => {
             className="flex ml-12 sm:ml-0 sm:flex-row mt-1 sm:mt-4 w-[300px] sm:w-[550px]">
             <motion.a
               href={project.liveLink}
-              className="text-l sm:text-xl whitespace-nowrap  underline font-medium text-[#c4ae8d] cursor-pointer mt-5"
+              className="text-l sm:text-xl whitespace-nowrap underline font-medium text-[#c4ae8d] cursor-pointer mt-5"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}>
               Live Demo
@@ -114,11 +172,16 @@ const Projects = () => {
               &#8594;
             </motion.p>
             <motion.a
-              whileHover={{ scale: 1.1 }} // Apply scale animation on hover
+              whileHover={{ scale: 1.1 }}
               href={project.githubLink}
               target="_blank"
+              rel="noopener noreferrer"
               className="ml-36 sm:ml-64 mt-3 sm:mt-5">
-              <img src="github.png" className="cursor-pointer h-8 w-8" />
+              <img
+                src="github.png"
+                className="cursor-pointer h-8 w-8"
+                alt="GitHub repository"
+              />
             </motion.a>
           </motion.div>
         </div>
@@ -153,7 +216,7 @@ const Projects = () => {
 
       <motion.div
         layout
-        className="border-[0.5px] border-[#746a5a] rounded-full flex flex-row p-2 sm:p-4 w-96 gap-4 sm:w-[650px] items-center justify-center  sm:gap-24">
+        className="border-[0.5px] border-[#746a5a] rounded-full flex flex-row p-2 sm:p-4 w-96 gap-4 sm:w-[650px] items-center justify-center sm:gap-24">
         {Projects.map((item, index) => (
           <motion.div
             key={index}

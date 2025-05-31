@@ -36,6 +36,13 @@ function Skillsandtools({ setIsMenuOpen }) {
       image: "5rate.svg",
     },
     {
+      title: "TypeScript",
+      description:
+        "Skilled in TypeScript for building scalable and type-safe JavaScript applications. Experienced with typing, interfaces, generics, and leveraging TypeScript to improve code quality and maintainability.",
+      rating: 5,
+      image: "5rate.svg",
+    },
+    {
       title: "React.js",
       description:
         "Experienced in building responsive, scalable user interfaces with React.js. I am adept at managing complex state using hooks and Context API, ensuring optimal performance and maintainable code.",
@@ -79,6 +86,14 @@ function Skillsandtools({ setIsMenuOpen }) {
       rating: 5,
       image: "5rate.svg",
     },
+    {
+      title: "MySQL",
+      description:
+        "Proficient in using MySQL for relational database management. Experienced with designing schemas, writing complex queries, and performing CRUD operations to manage structured data efficiently.",
+      rating: 5,
+      image: "5rate.svg",
+    },
+
     {
       title: "PostgreSQL",
       description:
