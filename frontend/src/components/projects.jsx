@@ -30,6 +30,14 @@ const frontEndProjects = [
 
 const fullStackProjects = [
   {
+    title: "Lead Management CRM Web App",
+    description:
+      "Lead Management CRM is a full-stack web application designed to help businesses efficiently track, manage, and nurture leads through the sales funnel. Built with the MERN stack (Mysql, Express, React, Node.js), this app provides features like lead tracking, status updates, and seamless user interaction to optimize customer relationship management.",
+    image: "crm1.png",
+    liveLink: "https://leadmanagement.scitechvalley.com/",
+    githubLink: "https://github.com/Estif4/leadmanage",
+  },
+  {
     title: "E-Commerce Food Web App",
     description:
       "E-Commerce Food Web App is a full-stack online food marketplace where users can browse a wide selection of food items, add them to their cart, and make purchases. Built with the MERN stack (MongoDB, Express, React, Node.js), this app offers a seamless shopping experience.",
