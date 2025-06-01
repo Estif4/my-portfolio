@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const frontEndProjects = [
@@ -69,7 +69,7 @@ const realTimeProjects = [
 const Projects = () => {
   const [selected, setSelected] = useState("FullStack");
   const [hover, setHover] = useState(false);
-  const Projects = [ "FullStack", "FrontEnd","RealTime"];
+  const Projects = ["FullStack", "FrontEnd", "RealTime"];
 
   const ProjectImageCarousel = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
