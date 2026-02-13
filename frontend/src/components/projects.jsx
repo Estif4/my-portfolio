@@ -63,6 +63,14 @@ const fullStackProjects = [
     isPrivate: true,
   },
   {
+    title: "Pfizer Vaccine Tracing System (PVTS)",
+    description: "Developed the Pfizer Vaccine Tracing System (PVTS), customizing DHIS2 to enable accurate tracking, reporting, and monitoring of vaccination programs across multiple modules, including service delivery, microplanning, session observation, and headcount. The system improved data accuracy and streamlined global vaccine management for Pfizer International.",
+    image: "pfizer.png",
+    liveLink: "#",
+    githubLink: "#",
+    isPrivate: true,
+  },
+  {
     title: "E-Commerce Food Web App",
     description:
       "E-Commerce Food Web App is a full-stack online food marketplace where users can browse a wide selection of food items, add them to their cart, and make purchases. Built with the MERN stack (MongoDB, Express, React, Node.js), this app offers a seamless shopping experience.",
