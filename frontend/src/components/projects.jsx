@@ -38,6 +38,31 @@ const fullStackProjects = [
     githubLink: "https://github.com/Estif4/leadmanage",
   },
   {
+    title: "WMMS",
+    description:
+      "Wi-Fi Maintenance Management System (WMMS) – Full-stack ISP operations platform. Designed and developed a system to streamline ticket management, coordinate technician workflows, and enable real-time device monitoring with structured role-based access control.",
+    images: ["wmmslogin.png", "wmmsdashboard.png"],
+    liveLink: "https://wmms-frontend.onrender.com/",
+    githubLink: "https://github.com/Estif4/wmms-frontend",
+  },
+  {
+    title: "BrainBite AI LMS",
+    description:
+      "BrainBite is an AI-powered e-learning platform that delivers personalized, bite-sized educational content. The system dynamically generates custom courses and quizzes using OpenAI, adapting learning paths to individual users. Designed with a modern full-stack architecture, it includes secure authentication, responsive UI, and scalable AI integration.",
+    image: "lms.png",
+    liveLink: "https://brainbite-elearning-mvp.vercel.app/landing",
+    githubLink: "https://github.com/Estif4/brainbite-elearning-mvp",
+  },
+  {
+    title: "Community-Based Health Insurance (CBHI) Mobile App",
+    description:
+      "Community-Based Health Insurance (CBHI) Mobile App is a production-grade Flutter application designed to digitize and streamline insurance operations. It enables field officers to enroll families, manage insuree records, and process policy updates with offline-first functionality, automatically syncing data with the backend once internet connectivity is restored.",
+    image: "enrollmet.jpg",
+    liveLink: "#",
+    githubLink: "#",
+    isPrivate: true,
+  },
+  {
     title: "E-Commerce Food Web App",
     description:
       "E-Commerce Food Web App is a full-stack online food marketplace where users can browse a wide selection of food items, add them to their cart, and make purchases. Built with the MERN stack (MongoDB, Express, React, Node.js), this app offers a seamless shopping experience.",
@@ -112,9 +137,8 @@ const Projects = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full ${
-                    currentIndex === index ? "bg-[#c4ae8d]" : "bg-gray-500"
-                  }`}
+                  className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-[#c4ae8d]" : "bg-gray-500"
+                    }`}
                   aria-label={`Go to image ${index + 1}`}
                 />
               ))}
@@ -160,6 +184,14 @@ const Projects = () => {
             className="flex ml-12 sm:ml-0 sm:flex-row mt-1 sm:mt-4 w-[300px] sm:w-[550px]">
             <motion.a
               href={project.liveLink}
+              onClick={(e) => {
+                if (project.isPrivate) {
+                  e.preventDefault();
+                  alert(
+                    "Due to security reasons, this project cannot be publicly revealed."
+                  );
+                }
+              }}
               className="text-l sm:text-xl whitespace-nowrap underline font-medium text-[#c4ae8d] cursor-pointer mt-5"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}>
@@ -174,6 +206,14 @@ const Projects = () => {
             <motion.a
               whileHover={{ scale: 1.1 }}
               href={project.githubLink}
+              onClick={(e) => {
+                if (project.isPrivate) {
+                  e.preventDefault();
+                  alert(
+                    "Due to security reasons, this project cannot be publicly revealed."
+                  );
+                }
+              }}
               target="_blank"
               rel="noopener noreferrer"
               className="ml-36 sm:ml-64 mt-3 sm:mt-5">
@@ -221,9 +261,8 @@ const Projects = () => {
           <motion.div
             key={index}
             onClick={() => setSelected(item)}
-            className={`cursor-pointer p-3 sm:p-4 text-l sm:text-xl tracking-widest font-montserrat font-medium ${
-              selected === item ? "bg-[#fbe2bb] text-black" : "text-[#b6a183]"
-            } p-2 rounded-full`}
+            className={`cursor-pointer p-3 sm:p-4 text-l sm:text-xl tracking-widest font-montserrat font-medium ${selected === item ? "bg-[#fbe2bb] text-black" : "text-[#b6a183]"
+              } p-2 rounded-full`}
             initial={{ scale: 1 }}
             animate={{ scale: selected === item ? 1.1 : 1 }}
             transition={{ type: "spring", stiffness: 100, duration: 1 }}>

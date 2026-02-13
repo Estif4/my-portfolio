@@ -8,7 +8,7 @@ import {
 import { useState, useEffect } from "react";
 import "@fontsource/montserrat/600.css"; // Regular weight
 import "@fontsource/montserrat/700.css"; // Bold weight
-function Home({ isMenuOpen, setIsMenuOpen,scrollToView }) {
+function Home({ isMenuOpen, setIsMenuOpen, scrollToView }) {
   const [hovers, setHover] = useState(false);
   const [text, setText] = useState(""); // State for dynamic text
   const [index, setIndex] = useState(0); // To track the current index for typing
@@ -100,7 +100,7 @@ function Home({ isMenuOpen, setIsMenuOpen,scrollToView }) {
                 ease: "easeInOut",
               },
             }}
-            href="Myresume.pdf"
+            href="mycv.pdf"
             download
             className=" items-center hidden sm:flex bg-[#efdbbc] text-black py-3 px-10 border-[0.5px] rounded-lg border-[#dac5a7]">
             <i className="fas fa-download mr-2"></i>
@@ -142,8 +142,8 @@ function Home({ isMenuOpen, setIsMenuOpen,scrollToView }) {
             onHoverStart={() => setHover(true)}
             onHoverEnd={() => setHover(false)}
             onClick={() => setHover(true)}>
-            <motion.p onClick={()=>scrollToView("contact")}
-            className="text-2xl font-medium text-[#c4ae8d] cursor-pointer mt-5 ">
+            <motion.p onClick={() => scrollToView("contact")}
+              className="text-2xl font-medium text-[#c4ae8d] cursor-pointer mt-5 ">
               Lets Talk
             </motion.p>
 

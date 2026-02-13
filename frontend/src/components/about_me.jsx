@@ -163,30 +163,27 @@ function About() {
                   viewport={{ once: false }}
                   className="relative flex flex-col py-4 px-6 bg-[#252524] border-l-2 rounded-md border-[#dac5a7]">
                   <p
-                    className={`text-xl pb-2 ${
-                      hoveredItem === item.label
+                    className={`text-xl pb-2 ${hoveredItem === item.label
                         ? "text-black z-50"
                         : "text-[#f1d3aa]"
-                    }`}>
+                      }`}>
                     {item.label}
                   </p>
                   {item.link ? (
                     <a
                       href={item.link}
-                      className={`${
-                        hoveredItem === item.label
+                      className={`${hoveredItem === item.label
                           ? "text-black z-50"
                           : "text-[#b7a589]"
-                      } text-l font-montserrat`}>
+                        } text-l font-montserrat`}>
                       {item.value}
                     </a>
                   ) : (
                     <p
-                      className={`${
-                        hoveredItem === item.label
+                      className={`${hoveredItem === item.label
                           ? "text-black z-50"
                           : "text-[#b7a589]"
-                      } text-l font-montserrat`}>
+                        } text-l font-montserrat`}>
                       {item.value}
                     </p>
                   )}
@@ -213,7 +210,7 @@ function About() {
               viewport={{ once: false }}
               whileTap={{ scale: 1.2 }}
               whileHover={hoverEffect}
-              href="Myresume.pdf"
+              href="mycv.pdf"
               download
               className="items-center text-center w-full sm:w-56 bg-[#efdbbc] text-black py-4 mt-4 px-10 border-[0.5px] rounded-lg border-[#dac5a7] cursor-pointer">
               <i className="fas fa-download mr-2"></i> Download CV

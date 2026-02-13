@@ -50,6 +50,13 @@ function Skillsandtools({ setIsMenuOpen }) {
       image: "5rate.svg",
     },
     {
+      title: "Next.js",
+      description:
+        "Proficient in Next.js for building production-ready applications. I utilize server-side rendering (SSR) and static site generation (SSG) to create fast, SEO-friendly web experiences with optimal performance.",
+      rating: 4,
+      image: "4rate.svg",
+    },
+    {
       title: "Tailwind CSS",
       description:
         "Proficient in using Tailwind CSS for designing clean, responsive, and modern web layouts with utility-first styling. This allows me to create fully customized, mobile-friendly designs without the need for a lot of extra CSS.",
@@ -114,6 +121,13 @@ function Skillsandtools({ setIsMenuOpen }) {
         "I am experienced in deploying applications using platforms like Render and Netlify. This includes automating deployment pipelines and ensuring that applications are highly available and scalable in production environments.",
       rating: 4.6,
       image: "4.6rate.svg",
+    },
+    {
+      title: "Flutter",
+      description:
+        "Skilled in Flutter for developing high-quality, cross-platform mobile applications. I create visually appealing and responsive UIs with a single codebase, ensuring native-like performance on both iOS and Android.",
+      rating: 4,
+      image: "4rate.svg",
     },
   ];
   // Define radius size based on screen size
